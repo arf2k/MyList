@@ -6,19 +6,18 @@ import List from '@material-ui/core/List';
 const NoteList = (props) => {
  
 
-  // const renderNotes = () => {
-  //        return props.addNote.map((index, note) => <li key={index} index={index} note={note} />)
+  const renderNotes = () => {
+         return props.addNotes.map((note, index) => <li key={index} index={index} note={note}>{note}</li>)
    
-  //   }
+    }
 
-  //   let entries = props.addNote
-  //   let listItems = entries.map(renderNotes)
+
    
      return(
           <>
           <h1>Note List</h1>
         <ul>  
-        {props.addNote}
+{renderNotes()}
         </ul>
         </>
     )

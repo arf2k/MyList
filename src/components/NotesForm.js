@@ -13,17 +13,16 @@ function NotesForm(){
      }
 
      const addNote = () => {
-         if(item.length === 0 ) {setItem(note)
-     } else {
-               const newNote = [...item, note]
-               setItem(newNote)}
-               setNote("")
-          
+         if(note.length > 0) {
+          setNote("")
+          setItem([...item, note]) 
+         } else {
+     return "I hate you"
+          }
      }
-     
-//     const renderNotes = () => {
-//           return item.map((note, index) => <li key={index} index={index} note={note}/> )
-//      }
+          
+
+
 
      return(
           <>
@@ -32,8 +31,8 @@ function NotesForm(){
           <TextField id="outlined-basic" label="Notes" onChange={changeHandler} value={note}/>
           <Button onClick={addNote} size="small" variant="outlined">Note It </Button>
      </form>
-   
-     <NoteList addNote={item}/>
+   {/* {renderNotes()} */}
+     <NoteList addNotes={item}/>
      </>
      )
 }
