@@ -7,7 +7,7 @@ const NoteList = (props) => {
  
 
   const renderNotes = () => {
-         return props.addNotes.map((note, index) => <li key={index} index={index} note={note}>{note}</li>)
+         return props.addNotes.map((note, index) => <ListItem key={index} index={index} note={note}>{note}</ListItem>)
    
     }
 
@@ -15,10 +15,10 @@ const NoteList = (props) => {
    
      return(
           <>
-          <h1>Note List</h1>
-        <ul>  
-{renderNotes()}
-        </ul>
+        <List>  
+      {renderNotes()} 
+        </List>
+       
         </>
     )
 }

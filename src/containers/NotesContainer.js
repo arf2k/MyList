@@ -1,5 +1,7 @@
 import React from 'react'
 import NotesForm from '../components/NotesForm.js'
+import Container from '@material-ui/core/Container'
+
 
 function NotesContainer() {
      
@@ -7,9 +9,9 @@ function NotesContainer() {
      
      return (
           <>
-     <h1>Inside Notes Container</h1>
+          <Container fixed>
      <NotesForm />
-    
+     </Container>
           </>
      )
 
