@@ -1,13 +1,13 @@
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
+import { List, Icon } from 'semantic-ui-react';
 
 
 const NoteList = (props) => {
  
 
   const renderNotes = () => {
-         return props.addNotes.map((note, index) => <ListItem key={index} index={index} note={note}>{note}</ListItem>)
+        return props.addNotes.map((note, index) =>  <List.Item key={index} index={index} note={note}>{note}
+        </List.Item>  ) 
    
     }
 

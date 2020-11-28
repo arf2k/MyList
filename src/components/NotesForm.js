@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import NoteList from './NoteList.js'
-import styled from 'styled-components'
+import { Input, Button } from 'semantic-ui-react';
+import NoteList from './NoteList.js';
+import styled from 'styled-components';
 
 function NotesForm(){
      
@@ -13,12 +12,13 @@ function NotesForm(){
           setNote(e.target.value)
      }
 
-     const addNote = () => {
+     const addNote = (e) => {
+          e.preventDefault()
          if(note.length > 0) {
           setNote("")
           setItem([...item, note]) 
          } else {
-     return "I hate you"
+     console.log( "I hate you")
           }
      }
           
@@ -30,14 +30,14 @@ function NotesForm(){
   <div className="listContainer" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "space-evenly"}}>
      <div className="formDiv"  >
      <form className="noteForm" >
-          <TextField id="outlined-basic" label="" onChange={changeHandler} value={note}/>
+          <Input label="" onChange={changeHandler} value={note}/>
           <Button onClick={addNote} size="small" variant="outlined">Note It </Button>
      </form>
      </div>
-     <div className="listdiv" >
+   <ListFrame>
      <NoteList addNotes={item}/>
-     </div>
-     </div>
+     </ListFrame>
+          </div>
      </>
      )
 }
@@ -45,15 +45,13 @@ export default NotesForm
 
 
 const ListFrame = styled.div`
-border-color: red;
+border-color: blue;
 border-style: ridge;
 border-width: 5px;
 width: 500px;
 height: 130px;
-background-color: #343A40;
 margin: 10px auto;
 display: grid;
-position: relative;
-
+position: relative
 
 `
