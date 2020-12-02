@@ -22,20 +22,29 @@ function NotesForm(){
           }
      }
           
-
-
-
+     const deleteNote = (index) => {
+          const newList = [...item]
+          // const noteIndex = newList.findIndex(note => note.id === index.id)
+          if (index > -1) {
+               newList.splice(index, 1);
+             } else {
+               newList.push(index);
+             }
+          setItem(newList)
+     }
+ 
+      
      return(
           <>
   <div className="listContainer" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "space-evenly"}}>
      <div className="formDiv"  >
      <form className="noteForm" >
-          <Input label="" onChange={changeHandler} value={note}/>
-          <Button onClick={addNote} size="small" variant="outlined">Note It </Button>
+          <Input onChange={changeHandler} value={note}/>
+          <Button onClick={addNote} inverted color="red">Note It </Button>
      </form>
      </div>
    <ListFrame>
-     <NoteList addNotes={item}/>
+     <NoteList addNotes={item} deleteNote={deleteNote}/>
      </ListFrame>
           </div>
      </>
