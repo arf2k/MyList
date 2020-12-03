@@ -33,6 +33,12 @@ function NotesForm(){
           setItem(newList)
      }
  
+     const editNote = (note) => {
+          const newList = [...item]
+          setNote(note)
+          newList.splice(note, 1)
+
+     }
       
      return(
           <>
@@ -44,7 +50,7 @@ function NotesForm(){
      </form>
      </div>
    <ListFrame>
-     <NoteList addNotes={item} deleteNote={deleteNote}/>
+     <NoteList editNote={editNote} addNotes={item} deleteNote={deleteNote}/>
      </ListFrame>
           </div>
      </>
