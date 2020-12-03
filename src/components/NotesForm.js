@@ -36,7 +36,7 @@ function NotesForm(){
       
      return(
           <>
-  <div className="listContainer" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "space-evenly"}}>
+  <div className="listContainer" style={{display: "flex"}}>
      <div className="formDiv"  >
      <form className="noteForm" >
           <Input onChange={changeHandler} value={note}/>
