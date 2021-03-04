@@ -1,13 +1,20 @@
-const INITIAL_STATE = { 
-     notes: null
+import NoteActionTypes from "./notesTypes"
+
+
+
+const INITIAL_STATE = {
+          allNotes: [],
+          byNote: {}
 }
 
-const notesReducer = (state, action) => {
+const notesReducer = (state = INITIAL_STATE, action) => {
      switch(action.type){
-          case "ADD_NOTE":
+          case NoteActionTypes.ADD_NOTE:
+               const { id, note } = action.payload;
           return {
                ...state,
-               notes: action.payload
+               allNotes: [...state.allNotes, id],
+               byNote: {...state.byNote, [id]: {note}}
           }
           default:
                return state;

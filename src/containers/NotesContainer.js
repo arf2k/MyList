@@ -1,5 +1,5 @@
 import React from 'react'
-import NotesForm from '../components/NotesForm.js'
+
 
 
 function NotesContainer() {
@@ -9,7 +9,7 @@ function NotesContainer() {
      return (
           <>
       
-     <NotesForm />
+    
           </>
      )
 
