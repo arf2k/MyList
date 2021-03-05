@@ -12,3 +12,10 @@ display: grid;
 position: relative
 
 `
+
+export const List = styled.div`
+display: inline-flex;
+flex-direction: column;
+height: 110px;
+flexWrap: wrap
+`
