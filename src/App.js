@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import NotesContainer from "./containers/NotesContainer.js";
 import NotesForm from './components/notes-form/NotesForm';
 import NoteList from './components/note-list/NoteList';
 
