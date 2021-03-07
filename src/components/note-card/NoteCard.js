@@ -6,31 +6,31 @@ import { addNote, deleteNote, editNote } from "../../redux/notes/notesActions";
 
 const NoteCard = ({ deleteNote, editNote, note, idx }) => {
   
-     const [text, setText] = useState("");
-     const [clicked, setClicked] = useState(false);
+//      const [text, setText] = useState("");
+//      const [clicked, setClicked] = useState(false);
 
-    const editHandler= (e) => {
-         setClicked(true)
-     editNote(note.idx)    
+//     const editHandler= (e) => {
+//          setClicked(true)
+//     console.log( idx)  
      
-     } 
+//      } 
 
-    const changeHandler = (e) => {
-         setText(e.target.value)
-         addNote(text)
-    }
+//     const changeHandler = (e) => {
+//          setText(e.target.value)
+//          editNote(idx, note)
+//     }
 
   
   
    return (
     <Li>
    {note}
-      <Icon name ="edit" onClick={editHandler} />
+      {/* <Icon name ="edit" onClick={editHandler} />
       {clicked?
       <form >
        <input onChange={changeHandler} value={text}/> 
        </form>
-       : null}
+       : null} */}
       <Icon name="trash alternate" onClick={() => deleteNote(idx)} />
     </Li>
   );
@@ -38,7 +38,6 @@ const NoteCard = ({ deleteNote, editNote, note, idx }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   deleteNote: (key) => dispatch(deleteNote(key)),
-  editNote: (key) => dispatch(editNote(key)),
 });
 
 export default connect(null, mapDispatchToProps)(NoteCard);

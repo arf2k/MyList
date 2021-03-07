@@ -2,14 +2,20 @@ import NoteActionTypes from "./notesTypes";
 
 const INITIAL_STATE = {
   notes: [],
+//   text: ""
 };
 
 const notesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+     // case NoteActionTypes.ADD_TEXT: 
+     // return {
+     //      ...state,
+     //      text: action.payload 
+     // }
     case NoteActionTypes.ADD_NOTE: {
       return {
         ...state,
-        notes: [...state.notes, action.payload],
+        notes: [...state.notes, action.payload]
       };
     }
     case NoteActionTypes.DELETE_NOTE:
@@ -29,6 +35,7 @@ const notesReducer = (state = INITIAL_STATE, action) => {
                      return note
                 }
            })
+     
     default:
       return state;
   }
