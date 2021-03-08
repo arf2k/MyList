@@ -6,16 +6,15 @@ import EditNote from "../edit-note/EditNote"
 
 const NoteList = ({ notes }) => {
   const renderNotes = () => {
-    console.log(notes)
     
-    // return notes.notes.map((note, i) => (
+    return notes.map((note, i) => (
       
-    //   <div key={note.id}>
-    //     {note.editing ? <EditNote note={note} key={note.id} idx={i}/> :
-    //           <NoteCard key={note.id} note={note} idx={i} />}
-    //           </div>
+      <div key={note.id}>
+        {note.editing ? <EditNote note={note} key={note.id} idx={i}/> :
+              <NoteCard key={note.id} note={note} idx={i} />}
+              </div>
 
-    // ));
+    ));
   };
 
   return (
