@@ -7,34 +7,35 @@ const INITIAL_STATE = {
 
 const notesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-     // case NoteActionTypes.ADD_TEXT: 
-     // return {
-     //      ...state,
-     //      text: action.payload 
-     // }
     case NoteActionTypes.ADD_NOTE: {
       return {
         ...state,
         notes: [...state.notes, action.payload]
       };
     }
-    case NoteActionTypes.DELETE_NOTE:
+    case NoteActionTypes.DELETE_NOTE: {
       return {
         ...state,
         notes: state.notes.filter((note, i) => i !== action.payload),
       };
-      case NoteActionTypes.EDIT_NOTE:
-           const notes = state.notes
-           return notes.map((note, i) => {
+    }
+      case NoteActionTypes.UPDATE_NOTE:
+           return state.notes.notes.map((note, i) => {
                 if(i === action.i){
                      return {
                           ...state,
-                          notes: [...state.notes, action.payload]
+                          notes: [...state.notes, action.payload],
+                          editing: !note.editing
                      }
                 } else {
                      return note
                 }
-           })
+           });
+           case NoteActionTypes.EDIT_NOTE: {
+            return (state.notes.map((note) => note.id === action.id ? {...state, editing: !note.editing} : note))
+            // return state.notes.notes.map((note) => note.id === action.id ? {...note, editing: !note.editing} : note);
+            
+            }
      
     default:
       return state;
