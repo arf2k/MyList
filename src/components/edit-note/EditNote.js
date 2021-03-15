@@ -22,7 +22,7 @@ const EditNote = () => {
 return (
      <div key={note.id} >
      <form className="updateForm">
-     <Input type="text" placeholder="Add a note" onChange={changeHandler} value={note} />
+     <Input type="text" placeholder="Edit a note" onChange={changeHandler} value={note} />
      <Button onClick={handleUpdate} inverted color="red">
        Update{" "}
      </Button>

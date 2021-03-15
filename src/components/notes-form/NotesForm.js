@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Input, Button } from "semantic-ui-react";
-import { connect } from "react-redux";
-import { addNote, addText } from "../../redux/notes/notesActions";
+import { useDispatch } from "react-redux"
+import { addNote } from "../../redux/notes/notesActions";
 
-const NotesForm = ({ addNote, addText, text }) => {
+const NotesForm = () => {
   const [note, setNote] = useState("")
 
-  // const changeHandler = (e) => {
-  //   addText(e.target.value)
-  // };
 
   const changeHandler = (e) => {
     setNote(e.target.value)
   }
 
+  const dispatch = useDispatch()
+
+
   const handleAdd = (e) => {
     e.preventDefault();
     if(note !== "") {
-      addNote(note);
+     dispatch(addNote(note))
       setNote("")
     }
   };
@@ -36,14 +36,11 @@ const NotesForm = ({ addNote, addText, text }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addNote: (note) => dispatch(addNote(note)),
-  addText: (value) => dispatch(addText(value))
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   addNote: (note) => dispatch(addNote(note)),
+//   addText: (value) => dispatch(addText(value))
+// });
 
 
-const mapStateToProps = state => ({
-  text: state.text
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotesForm);
+export default NotesForm;

@@ -7,7 +7,7 @@ import EditNote from "../edit-note/EditNote"
 const NoteList = ({ notes }) => {
   const renderNotes = () => {
     
-    return notes.map((note, i) => (
+    return notes.notes.map((note, i) => (
       
       <div key={note.id}>
         {note.editing ? <EditNote note={note} key={note.id} idx={i}/> :
@@ -16,6 +16,8 @@ const NoteList = ({ notes }) => {
 
     ));
   };
+
+  // right now the list renders but when click on edit it says the can't read property map of undefined but then remove notes.notes and just make notes.map and the update form triggers
 
   return (
     <>
@@ -27,7 +29,7 @@ const NoteList = ({ notes }) => {
 };
 
 const mapStateToProps = ({ notes }) => ({
-  notes,
+  notes
 });
 
 export default connect(mapStateToProps)(NoteList);

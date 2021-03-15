@@ -6,20 +6,7 @@ import { addNote, deleteNote, updateNote, editNote } from "../../redux/notes/not
 
 const NoteCard = ({ deleteNote, editNote, note, idx }) => {
   
-    //  const [text, setText] = useState("");
-    //  const [clicked, setClicked] = useState(false);
-
-    // const editHandler= (e) => {
-    //      setClicked(true)
-    //  } 
-
-    // const changeHandler = (e) => {
-    //      setText(e.target.value)
-    //      let newNote = text
-    //      console.log(newNote)
-    //       updateNote(newNote)
-    // }
-
+  
   
    return (
     <Li>
